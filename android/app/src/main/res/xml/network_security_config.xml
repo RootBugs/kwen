@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <!-- Block all cleartext (HTTP) traffic -->
+    <base-config cleartextTrafficPermitted="false">
+        <trust-anchors>
+            <certificates src="system" />
+        </trust-anchors>
+    </base-config>
+
+    <!-- Allow Supabase and kwen.in without certificate pinning -->
+    <!-- Supabase uses Cloudflare which rotates between Let's Encrypt and Google Trust Services -->
+    <domain-config>
+        <domain includeSubdomains="true">supabase.co</domain>
+        <domain includeSubdomains="true">supabase.in</domain>
+        <domain includeSubdomains="true">kwen.in</domain>
+    </domain-config>
+</network-security-config>
